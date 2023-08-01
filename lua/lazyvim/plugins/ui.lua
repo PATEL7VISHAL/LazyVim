@@ -32,22 +32,22 @@ return {
   },
 
   -- better vim.ui
-  {
-    "stevearc/dressing.nvim",
-    lazy = true,
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
-    end,
-  },
+  -- {
+  --   "stevearc/dressing.nvim",
+  --   lazy = true,
+  --   init = function()
+  --     ---@diagnostic disable-next-line: duplicate-set-field
+  --     vim.ui.select = function(...)
+  --       require("lazy").load({ plugins = { "dressing.nvim" } })
+  --       return vim.ui.select(...)
+  --     end
+  --     ---@diagnostic disable-next-line: duplicate-set-field
+  --     vim.ui.input = function(...)
+  --       require("lazy").load({ plugins = { "dressing.nvim" } })
+  --       return vim.ui.input(...)
+  --     end
+  --   end,
+  -- },
 
   -- This is what powers LazyVim's fancy-looking
   -- tabs, which include filetype icons and close buttons.
@@ -168,8 +168,8 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      -- char = "▏",
-      char = "│",
+      char = "▏",
+      -- char = "│",
       filetype_exclude = {
         "help",
         "alpha",
@@ -195,8 +195,8 @@ return {
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      -- symbol = "▏",
-      symbol = "│",
+      symbol = "▏",
+      -- symbol = "│",
       options = { try_as_border = true },
     },
     init = function()
@@ -338,26 +338,26 @@ return {
   -- lsp symbol navigation for lualine. This shows where
   -- in the code structure you are - within functions, classes,
   -- etc - in the statusline.
-  {
-    "SmiteshP/nvim-navic",
-    lazy = true,
-    init = function()
-      vim.g.navic_silence = true
-      require("lazyvim.util").on_attach(function(client, buffer)
-        if client.server_capabilities.documentSymbolProvider then
-          require("nvim-navic").attach(client, buffer)
-        end
-      end)
-    end,
-    opts = function()
-      return {
-        separator = " ",
-        highlight = true,
-        depth_limit = 5,
-        icons = require("lazyvim.config").icons.kinds,
-      }
-    end,
-  },
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   lazy = true,
+  --   init = function()
+  --     vim.g.navic_silence = true
+  --     require("lazyvim.util").on_attach(function(client, buffer)
+  --       if client.server_capabilities.documentSymbolProvider then
+  --         require("nvim-navic").attach(client, buffer)
+  --       end
+  --     end)
+  --   end,
+  --   opts = function()
+  --     return {
+  --       separator = " ",
+  --       highlight = true,
+  --       depth_limit = 5,
+  --       icons = require("lazyvim.config").icons.kinds,
+  --     }
+  --   end,
+  -- },
 
   -- icons
   { "nvim-tree/nvim-web-devicons", lazy = true },
